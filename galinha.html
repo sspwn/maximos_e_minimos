@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #004c2f;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .baixo {
+            color: green;
+        }
+
+        .medio {
+            color: orange;
+        }
+
+        .alto {
+            color: red;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #00ffa3;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004c2f;
+            color: black;
+        }
+
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <button>
+            <a href="index.html">Voltar para a Página Inicial</a>
+        </button>
+    </div>
+
+    <script>
+        function calcularCustoGalinhas(numero_galinhas) {
+            const custo_por_galinha = 10.50;
+            const custo_fixo = 3;
+            return custo_fixo + custo_por_galinha * numero_galinhas;
+        }
+
+        function exibirPrompt() {
+            var numero_galinhas = parseInt(prompt("Digite o número de galinhas:"));
+            if (!isNaN(numero_galinhas)) {
+                var custo_total = calcularCustoGalinhas(numero_galinhas);
+                var classe_estilo = "";
+
+                if (custo_total < 50) {
+                    classe_estilo = "baixo";
+                } else if (custo_total < 100) {
+                    classe_estilo = "medio";
+                } else {
+                    classe_estilo = "alto";
+                }
+
+                document.body.classList = [classe_estilo];
+                document.getElementById('resultado').innerHTML = `O custo total para ${numero_galinhas} galinhas é R$${custo_total.toFixed(2)}`;
+                document.getElementById('botaoRefazer').style.display = 'block';
+            }
+        }
+    </script>
+
+    <h1 id="resultado">Clique no botão para calcular o custo das galinhas.</h1>
+    <button id="botaoRefazer" style="display:none;" onclick="exibirPrompt()">Refazer Cálculo</button>
+
+    <script>
+        // Chama a função para exibir o prompt assim que o script é carregado
+        exibirPrompt();
+    </script>
+
+</body>
+</html>

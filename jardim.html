@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Área Máxima</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #004c2f;
+            color: #ffffff;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        button,
+        select,
+        input {
+            border-radius: 15px;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        label,
+        p {
+            font-weight: bolder;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        #img {
+            text-align: center;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #00ffa3;
+        }
+
+        button:hover, button:hover>a {
+            background-color: #004c2f;
+            transition: 0.5s;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Área Máxima do Jardim</h1>
+
+    <form>
+        <label for="catetoA">Comprimento do Cateto A (em metros):</label>
+        <input type="number" id="catetoA" required>
+
+        <label for="catetoB">Comprimento do Cateto B (em metros):</label>
+        <input type="number" id="catetoB" required>
+
+        <button type="button" onclick="calcularAreaMaxima()">Calcular Área Máxima</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <div id="img">
+        <img id="imagemCortada" src="https://media.tenor.com/6ZHUev-IcJoAAAAC/palmeirense-palmeiras.gif" alt=""
+            srcset="">
+    </div>
+
+    <div>
+        <button>
+            <a href="index.html">Voltar para a Página Inicial</a>
+        </button>
+    </div>
+
+    <script>
+        function calcularAreaMaxima() {
+            // Obter os valores dos catetos do triângulo
+            var a = parseFloat(document.getElementById('catetoA').value);
+            var b = parseFloat(document.getElementById('catetoB').value);
+
+            // Calcular dimensões para área máxima
+            var largura = a / 2;
+            var comprimento = b / 2;
+
+            // Calcular a área máxima
+            var areaMaxima = largura * comprimento;
+
+            // Exibir as dimensões e a área calculadas
+            document.getElementById('resultado').innerHTML = "Dimensões para área máxima: " + largura.toFixed(2) + " m x " + comprimento.toFixed(2) + " m<br>Área máxima: " + areaMaxima.toFixed(2) + " m²";
+        }
+    </script>
+</body>
+
+</html>
